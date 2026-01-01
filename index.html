@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDRAJIT 1M | EVO GUN DATABASE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon: #ff0055; --cyan: #00f2ff; --bg: #050505; }
+        body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: white; overflow-x: hidden; }
+
+        /* 🇮🇳 Animated Indian Flag Background */
+        .flag-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: #000; }
+        .flag-bg {
+            width: 110%; height: 110%;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg');
+            background-size: cover; background-position: center;
+            opacity: 0.2; filter: blur(4px);
+            animation: waveMotion 8s ease-in-out infinite;
+        }
+        @keyframes waveMotion {
+            0%, 100% { transform: translate(-2%, -2%) scale(1) skewY(0deg); }
+            50% { transform: translate(0%, 0%) scale(1.08) skewY(1.5deg); }
+        }
+
+        /* Header INDRAJIT 1M */
+        header { text-align: center; padding: 50px 20px; border-bottom: 4px solid var(--neon); box-shadow: 0 0 30px var(--neon); background: rgba(0,0,0,0.8); }
+        .brand { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 900; text-shadow: 0 0 15px var(--neon); margin: 0; letter-spacing: 3px; }
+        .dev-tag { color: var(--cyan); letter-spacing: 4px; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 30px; max-width: 1300px; margin: auto; }
+        .card { background: rgba(20,20,20,0.9); border: 1px solid #333; border-radius: 12px; overflow: hidden; transition: 0.4s; position: relative; }
+        .card:hover { transform: translateY(-10px); border-color: var(--cyan); box-shadow: 0 0 25px var(--cyan); }
+        .card-img { width: 100%; height: 160px; object-fit: cover; border-bottom: 1px solid #222; }
+        .card-info { padding: 15px; text-align: center; }
+        .name { display: block; font-weight: 600; margin-bottom: 12px; font-size: 0.85rem; height: 35px; color: #eee; text-transform: uppercase; }
+        .id-btn { width: 100%; padding: 10px; background: transparent; border: 1px dashed var(--cyan); color: var(--cyan); font-family: 'Orbitron'; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+        .id-btn:hover { background: var(--cyan); color: #000; font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; color: #666; font-size: 0.75rem; border-top: 1px solid #222; background: #000; }
+    </style>
+</head>
+<body>
+
+    <div class="flag-container">
+        <div class="flag-bg"></div>
+    </div>
+
+    <header>
+        <h1 class="brand">INDRAJIT 1M</h1>
+        <div class="dev-tag">ULTIMATE EVO GUN DATABASE 🇮🇳</div>
+    </header>
+
+    <div class="grid" id="evoGrid"></div>
+
+    <footer>&copy; 2026 INDRAJIT 1M | PRO DEVELOPER ACCESS</footer>
+
+    <script>
+        const evoGuns = [
+            { name: "AK - Blue Flame Draco", id: "90401001", img: "https://via.placeholder.com/300x200/222/ff0055?text=BLUE+FLAME+AK" },
+            { name: "MP40 - Predatory Cobra", id: "90401002", img: "https://via.placeholder.com/300x200/222/ff0055?text=COBRA+MP40" },
+            { name: "SCAR - Megalodon Alpha", id: "90401003", img: "https://via.placeholder.com/300x200/222/ff0055?text=MEGALODON+SCAR" },
+            { name: "M1014 - Green Flame Draco", id: "90401004", img: "https://via.placeholder.com/300x200/222/ff0055?text=GREEN+DRACO" },
+            { name: "FAMAS - Demonic Grin", id: "90401005", img: "https://via.placeholder.com/300x200/222/ff0055?text=DEMONIC+FAMAS" },
+            { name: "UMP - Booyah Day", id: "90401006", img: "https://via.placeholder.com/300x200/222/ff0055?text=BOOYAH+UMP" },
+            { name: "XM8 - Guardian Destiny", id: "90401007", img: "https://via.placeholder.com/300x200/222/ff0055?text=XM8+GUARDIAN" },
+            { name: "M1887 - Sterling Conqueror", id: "90401008", img: "https://via.placeholder.com/300x200/222/ff0055?text=M1887+STERLING" },
+            { name: "MP5 - Platinum Divinity", id: "90401009", img: "https://via.placeholder.com/300x200/222/ff0055?text=MP5+PLATINUM" },
+            { name: "M4A1 - Infernal Draco", id: "90401010", img: "https://via.placeholder.com/300x200/222/ff0055?text=M4A1+INFERNAL" },
+            { name: "GROZA - Bang! Bang!", id: "90401011", img: "https://via.placeholder.com/300x200/222/ff0055?text=GROZA+BANG" },
+            { name: "AN94 - Evil Howler", id: "90401012", img: "https://via.placeholder.com/300x200/222/ff0055?text=AN94+EVIL" },
+            { name: "THOMPSON - Cindered Colossus", id: "90401013", img: "https://via.placeholder.com/300x200/222/ff0055?text=THOMPSON+EVO" },
+            { name: "M1014 - Scorpio Shatter", id: "90401014", img: "https://via.placeholder.com/300x200/222/ff0055?text=M1014+SCORPIO" },
+            { name: "MP40 - Chromasonic", id: "90401015", img: "https://via.placeholder.com/300x200/222/ff0055?text=MP40+CHROMA" },
+            { name: "P90 - Bunny Dash", id: "90401016", img: "https://via.placeholder.com/300x200/222/ff0055?text=P90+BUNNY" },
+            { name: "WOODPECKER - Majestic Heist", id: "90401017", img: "https://via.placeholder.com/300x200/222/ff0055?text=WOODPECKER+EVO" },
+            { name: "DESERT EAGLE - Fishy Bites", id: "90401018", img: "https://via.placeholder.com/300x200/222/ff0055?text=EVO+DEAGLE" }
+        ];
+
+        const grid = document.getElementById('evoGrid');
+        evoGuns.forEach(gun => {
+            grid.innerHTML += `
+                <div class="card">
+                    <img src="${gun.img}" class="card-img" alt="${gun.name}">
+                    <div class="card-info">
+                        <span class="name">${gun.name}</span>
+                        <button class="id-btn" onclick="copyId('${gun.id}')">${gun.id}</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        function copyId(id) {
+            navigator.clipboard.writeText(id);
+            alert("COPIED BY INDRAJIT 1M: " + id);
+        }
+    </script>
+</body>
+</html>
